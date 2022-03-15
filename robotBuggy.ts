@@ -63,7 +63,7 @@ namespace robotBuggy {
      * @param rf sets pin value for right motor forwards e.g. Pin.p15
      * @param rb sets pin value for right motor reverse e.g. Pin.p14
      */
-    //% block="set up A1A %lf set up A1B %lb set up B1A %rf set up B1B %rb"
+    //% block="set up left forward %lf set up left backward %lb set up right forward %rf set up right backward %rb"
     //% lf.defl=Pin.p13 lb.defl=Pin.p12 rf.defl=Pin.p15 rb.defl=Pin.p14
     //% advanced=true
     export function setup(lf: Pin, lb: Pin, rf: Pin, rb: Pin) {
