@@ -142,4 +142,60 @@ namespace robotBuggy {
         basic.clearScreen()
     }
 
+    /**
+     * Control your robot's motors independently
+     * @param valueLeft choose a speed, eg: 750
+     * @param valueRight choose a speed, eg: 750
+     * @param duration choose how long the motors run for in ms, eg: 1000
+     * @param image choose which icon to display whilst moving, eg: duck
+     */
+    //% block="set left at speed %valueLeft set right at speed %valueRight for duration %duration with image %image"
+    //% valueLeft.min=-1023 valueLeft.max=1023 valueLeft.defl=750
+    //% valueRight.min=-1023 valueRight.max=1023 valueRight.defl=750
+    //% duration.shadow=timePicker
+    //% advanced=true
+    export function movementIndependent(valueLeft: number, valueRight: number, duration: number, image: IconNames) {
+        images.iconImage(image).showImage(0)
+        if (valueLeft >= 0) {
+            pins.analogWritePin(LF, Math.abs(valueLeft))
+        } else if (valueLeft < 0) {
+            pins.analogWritePin(LB, Math.abs(valueLeft))
+        }
+        if (valueRight >= 0) {
+            pins.analogWritePin(RF, Math.abs(valueRight))
+        } else if (valueRight < 0) {
+            pins.analogWritePin(RB, Math.abs(valueRight))
+        }
+        basic.pause(duration)
+        stopRobot()
+        basic.clearScreen()
+    }
+
+    /**
+     * Control your robot's motors independently - without images
+     * @param valueLeft choose a speed, eg: 750
+     * @param valueRight choose a speed, eg: 750
+     * @param duration choose how long the motors run for in ms, eg: 1000
+     */
+    //% block="set left at speed %valueLeft set right at speed %valueRight for duration %duration"
+    //% valueLeft.min=-1023 valueLeft.max=1023 valueLeft.defl=750
+    //% valueRight.min=-1023 valueRight.max=1023 valueRight.defl=750
+    //% duration.shadow=timePicker
+    //% advanced=true
+    export function movementIndependentBlank(valueLeft: number, valueRight: number, duration: number) {
+        if (valueLeft >= 0) {
+            pins.analogWritePin(LF, Math.abs(valueLeft))
+        } else if (valueLeft < 0) {
+            pins.analogWritePin(LB, Math.abs(valueLeft))
+        }
+        if (valueRight >= 0) {
+            pins.analogWritePin(RF, Math.abs(valueRight))
+        } else if (valueRight < 0) {
+            pins.analogWritePin(RB, Math.abs(valueRight))
+        }
+        basic.pause(duration)
+        stopRobot()
+        basic.clearScreen()
+    }
+
 }

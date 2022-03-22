@@ -4,8 +4,8 @@ input.onButtonPressed(Button.A, function () {
     basic.clearScreen()
 })
 input.onButtonPressed(Button.B, function () {
-    robotBuggy.movementAdvanced(
-    Motors.both,
+    robotBuggy.movementIndependent(
+    750,
     750,
     2000,
     IconNames.Heart
