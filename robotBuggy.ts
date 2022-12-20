@@ -44,7 +44,7 @@ let LB = 112;
 let RF = 115;
 let RB = 114;
 
-//% weight=100 color=#CCCC00 icon="U+25CE"
+//% weight=100 color=#c1d72e icon="\uf140"
 namespace robotBuggy {
 
     /**
