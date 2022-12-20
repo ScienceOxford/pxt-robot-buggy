@@ -61,9 +61,11 @@ namespace robotBuggy {
     export function turning(direction: Turn, duration: number) {
         let value = Speed.fast
         if (direction == Turn.left) {
+            images.arrowImage(ArrowNames.West).showImage(0, 0)
             pins.analogWritePin(LB, Math.abs(value))
             pins.analogWritePin(RF, Math.abs(value))
         } else if (direction == Turn.right) {
+            images.arrowImage(ArrowNames.East).showImage(0, 0)
             pins.analogWritePin(LF, Math.abs(value))
             pins.analogWritePin(RB, Math.abs(value))
         }
@@ -78,13 +80,15 @@ namespace robotBuggy {
      * @param duration choose how long the motor runs for in ms, eg: 1000
      */
     //% block="move %direction at speed %value for %duration milliseconds"
-    //% value.defl=medium
+    //% value.defl=Speed.medium
     //% duration.shadow=timePicker
     export function movement(direction: Dir, value: Speed, duration: number) {
         if (direction == Dir.forward) {
+            images.arrowImage(ArrowNames.North).showImage(0, 0)
             pins.analogWritePin(LF, Math.abs(value))
             pins.analogWritePin(RF, Math.abs(value))
         } else if (direction == Dir.backward) {
+            images.arrowImage(ArrowNames.South).showImage(0, 0)
             pins.analogWritePin(LB, Math.abs(value))
             pins.analogWritePin(RB, Math.abs(value))
         }
