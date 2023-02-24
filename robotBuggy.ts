@@ -61,16 +61,17 @@ namespace robotBuggy {
     export function turning(direction: Turn, duration: number) {
         let value = Speed.fast
         if (direction == Turn.left) {
-            images.arrowImage(ArrowNames.West).showImage(0, 0)
+            basic.showArrow(ArrowNames.West, 0)
             pins.analogWritePin(LB, Math.abs(value))
             pins.analogWritePin(RF, Math.abs(value))
         } else if (direction == Turn.right) {
-            images.arrowImage(ArrowNames.East).showImage(0, 0)
+            basic.showArrow(ArrowNames.East, 0)
             pins.analogWritePin(LF, Math.abs(value))
             pins.analogWritePin(RB, Math.abs(value))
         }
         basic.pause(duration)
         stopRobot()
+        basic.clearScreen();
     }
 
     /**
@@ -84,16 +85,17 @@ namespace robotBuggy {
     //% duration.shadow=timePicker
     export function movement(direction: Dir, value: Speed, duration: number) {
         if (direction == Dir.forward) {
-            images.arrowImage(ArrowNames.North).showImage(0, 0)
+            basic.showArrow(ArrowNames.North, 0)
             pins.analogWritePin(LF, Math.abs(value))
             pins.analogWritePin(RF, Math.abs(value))
         } else if (direction == Dir.backward) {
-            images.arrowImage(ArrowNames.South).showImage(0, 0)
+            basic.showArrow(ArrowNames.South, 0)
             pins.analogWritePin(LB, Math.abs(value))
             pins.analogWritePin(RB, Math.abs(value))
         }
         basic.pause(duration)
         stopRobot()
+        basic.clearScreen();
     }
 
     /**
@@ -134,9 +136,9 @@ namespace robotBuggy {
     //% advanced=true
     export function setup(lf: Pin, lb: Pin, rf: Pin, rb: Pin) {
         LF = lf,
-            LB = lb,
-            RF = rf,
-            RB = rb
+        LB = lb,
+        RF = rf,
+        RB = rb
         stopRobot()
     }
 
@@ -152,7 +154,7 @@ namespace robotBuggy {
     //% duration.shadow=timePicker
     //% advanced=true
     export function movementAdvanced(motor: Motors, value: number, duration: number, image: IconNames) {
-        images.iconImage(image).showImage(0)
+        basic.showIcon(image)
         if (motor == Motors.left && value > 0) {
             pins.analogWritePin(LF, Math.abs(value))
         } else if (motor == Motors.left && value < 0) {
